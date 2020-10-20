@@ -1,5 +1,5 @@
 RSpec.describe "authors/new", type: :feature do
-  before(:each) { visit new_author_path }
+  before(:each) { visit new_authors_path }
 
   describe "a blank form" do
     it "does not render an error list" do
@@ -23,7 +23,7 @@ RSpec.describe "authors/new", type: :feature do
         phone_number: "5550350001"
       )
 
-      visit new_author_path
+      visit new_authors_path
       fill_in "Email", with: invalid_attributes[:email]
       fill_in "Phone Number", with: invalid_attributes[:phone_number]
       click_button "Create"

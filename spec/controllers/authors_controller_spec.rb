@@ -36,7 +36,7 @@ RSpec.describe AuthorsController do
     end
 
     it "redirects to show page" do
-      expect(response).to redirect_to(author_path(bro_found))
+      expect(response).to redirect_to(authors_path(bro_found))
     end
   end
 

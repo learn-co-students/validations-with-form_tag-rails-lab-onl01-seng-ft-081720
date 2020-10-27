@@ -1,0 +1,44 @@
+<h1>Editing "<%= @author.name %>"</h1>
+<%= form_for @author do |f| %>
+  <% if @author.errors.any? %>
+    <div>
+      <h3>There were some errors:</h3>
+      <ul>
+        <% @author.errors.full_messages.each do |mess| %>
+          <li><%= mess %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <% if @author.errors[:name].empty? %>
+    <div class="field">
+  <% else %>
+    <div class="field_with_errors">
+  <% end %>
+    <%= f.label_tag "name", "Title" %>
+    <br />
+    <%= f.text_field_tag "name", @author.name %>
+  </div>
+
+  <% if @author.errors[:email].empty? %>
+    <div class="field">
+  <% else %>
+    <div class="field_with_errors">
+  <% end %>
+    <%= f.label_tag "email", "Category" %>
+    <p>Must be either "Fiction" or "Non-Fiction".</p>
+    <%= f.text_field_tag "email", @author.email %>
+  </div>
+
+  <% if @author.errors[:phone_number].empty? %>
+    <div class="field">
+  <% else %>
+    <div class="field_with_errors">
+  <% end %>
+    <%= f.label_tag "phone_number", "Content" %>
+    <br />
+    <%= f.text_area_tag "phone_number", @author.phone_number %>
+  </div>
+  <%= submit_tag "Update" %>
+<% end %>
